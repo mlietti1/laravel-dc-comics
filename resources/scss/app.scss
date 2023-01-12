@@ -1,6 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
 
-tr {
-    vertical-align: middle;
+body{
+    background-color: rgb(56, 56, 56);
+    color: white;
     text-transform: capitalize;
 }
+
+h1{
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px rgb(167, 167, 167);
+    font-weight: 600;
+}
+
+tr {
+    color: white !important;
+    vertical-align: middle;
+    td{
+        color: white !important;
+    }
+}
+
