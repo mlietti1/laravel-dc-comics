@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <h1 class="my-3">Comics</h1>
+
 
     <table class="table table-striped">
         <thead>
