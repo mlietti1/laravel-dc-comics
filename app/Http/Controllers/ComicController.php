@@ -14,8 +14,16 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::orderBy('id', 'desc')->paginate(6);
-        return view('comics.index', compact('comics'));
+        $comics = Comic::paginate(6);
+        $direction = 'desc';
+        return view('comics.index', compact('comics', 'direction'));
+    }
+
+    public function orderby($column, $direction){
+        $direction = $direction === 'desc' ? 'asc' : 'desc';
+        $comics = Comic::orderBy($column, $direction)->paginate(6);
+
+        return view('comics.index', compact('direction', 'comics'));
     }
 
     /**
@@ -25,7 +33,15 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('comics.create');
+        $route = route('comics.store');
+
+        $method = 'POST';
+
+        $comic = null;
+
+        $title = 'New comic book';
+
+        return view('comics.create-edit', compact('route', 'method', 'comic', 'title'));
     }
 
     /**

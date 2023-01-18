@@ -5,9 +5,17 @@
 <div class="container">
 
     <h3 class="my-3">{{$comic->title}}</h3>
-    <p>{{$comic->type}}</p>
-    <p>{{$comic->description}}</p>
-    <img src="{{$comic->thumb}}" alt="{{$comic->title}}">
+    <p><strong>{{$comic->type}}</strong></p>
+
+    <div class="d-flex justify-content-between">
+
+        <img class="me-4" src="{{$comic->thumb}}" alt="{{$comic->title}}">
+        <div>
+            <p class="description">{{$comic->description}}</p>
+            <p class="text-danger">{{$comic->price}}</p>
+        </div>
+    </div>
+
 
 </div>
 

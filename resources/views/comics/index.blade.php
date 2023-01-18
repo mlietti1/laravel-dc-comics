@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-
+<div class="container mb-3">
+    <a class="btn btn-primary" href="{{route('comics.create')}}">Add a new comic</a>
+</div>
 <div class="container">
 
 
