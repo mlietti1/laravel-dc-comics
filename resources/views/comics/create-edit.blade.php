@@ -64,7 +64,7 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea value="{{old('description', $comic?->description)}}" name="description" placeholder="Type the description here" class="form-control" id="description" rows="3"></textarea>
+            <textarea value="{{old('description', $comic?->description)}}" name="description" placeholder="Type the description here" class="form-control" id="description" rows="3">{{old('sale_date',$comic?->sale_date)}}</textarea>
             @error('description')
                 <p class="invalid-feedback">{{$message}}</p>
             @enderror
