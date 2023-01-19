@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('thumb')->default('http://www.asdalcione.it/wp-content/uploads/2016/08/jk-placeholder-image-1.jpg');
             $table->string('price', 5);
             $table->string('series', 50);
-            $table->date('sale_date', 50);
+            $table->date('sale_date');
             $table->string('type', 50);
             $table->timestamps();
         });

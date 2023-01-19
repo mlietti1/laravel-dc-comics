@@ -6,14 +6,19 @@
 </div>
 <div class="container">
 
-
+    @if (session('deleted'))
+        <div class="alert alert-success" role="alert">
+            {{session('deleted')}}
+        </div>
+    @endif
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Type</th>
+                <th scope="col"><a href="{{route('comics.orderby', ['id', $direction])}}">ID</a></th>
+                <th scope="col"><a href="{{route('comics.orderby', ['title', $direction])}}">Title</a></th>
+                <th scope="col"><a href="{{route('comics.orderby', ['type', $direction])}}">Type</a></th>
+                <th scope="col"><a href="{{route('comics.orderby', ['price', $direction])}}">Price</a></th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -23,10 +28,11 @@
                 <td>{{$comic->id}}</td>
                 <td>{{$comic->title}}</td>
                 <td>{{$comic->type}}</td>
+                <td>$ {{number_format($comic->price,2,',','.')}}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('comics.show', $comic)}}" title="show"><i class="fa-regular fa-eye"></i></a>
-                    <a class="btn btn-warning " href="#" title="edit"><i class="fa-solid fa-pencil"></i></a>
-                    <a class="btn btn-danger " href="#" title="delete"><i class="fa-solid fa-trash"></i></a>
+                    <a class="btn btn-primary" href="{{route('comics.show', $comic->slug)}}" title="show"><i class="fa-regular fa-eye"></i></a>
+                    <a class="btn btn-warning " href="{{route('comics.edit', $comic)}}" title="edit"><i class="fa-solid fa-pencil"></i></a>
+                    @include('partials.form-delete')
                 </td>
             </tr>
             @empty

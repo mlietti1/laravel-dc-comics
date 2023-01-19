@@ -25,8 +25,12 @@ class ComicRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:50',
-            'description' => 'max:255'
-
+            'description' => 'max:255',
+            'thumb' => 'max:255',
+            'price' => 'required|max:5',
+            'series' => 'required|min:3|max:50',
+            'sale_date' => 'required',
+            'type' => 'required|min:3|max:50'
         ];
     }
 }

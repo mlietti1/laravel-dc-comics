@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ComicController::class, 'index'])->name('home');
 
 Route::resource('comics', ComicController::class);
+
+Route::get('comics/orderby/{column}/{direction}', [ComicController::class, 'orderby'])->name('comics.orderby');
